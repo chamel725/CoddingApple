@@ -1,3 +1,7 @@
+//Lint끄는 기능:Warning메세지 없애는 부분
+/* eslint-disable */
+
+
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
@@ -28,9 +32,13 @@ function App() {
   //3.let[작명,작명]
   //a = sgtate에 보곤했던 자료 나옴
   //b = state 변경 도와주는 함수
- 
-  let [글제목, b] = useState('남자 코트 추천');
-
+  let [글제목, 글제목변경] = useState(['남자 코트 추천','강남 우동맛집','파이썬독학']);
+  let [따봉,따봉변경] = useState(0);
+  
+  function 함수(){//긴 코드를 한 단어로 묶어주는 문법
+    console.log(1);
+  }
+  
    //array안에 있는 자료를 변수로 뺴고 싶을 때
    //let num = [1,2];//1과2를 변수로 빼고 싶다.
    //let a = num[1];
@@ -44,13 +52,40 @@ function App() {
   return ( //html 짜는 공간
     <div className="App">
       <div className = "black-nav">
-        <h4 style = {{color:'red', fontSize: '16px'}}>블로그임!</h4>
-        <div className = "list">
-        <h4>글제목</h4> 
-        <p>2월 17일 발행</p> 
-        </div>
+        <h4 style = {{color:'red', fontSize: '16px'}}>ReactBlog</h4>
       </div>
-      <h4>{ 글제목 }</h4>
+      {/* button 클릭 시 여자 코트 추천으로 바뀌도록
+       확장성을 위해 일부만 바꿔서 state변경함수에 넣어도 될듯
+      참고)array/object 다룰 때 원본은 보존하는게 좋음 
+      [state변겨함수 특징]
+      기존state === 신규state의 경우 변경 안해줌
+      [array/object특징]
+      array/object담은 변수엔 화살표만 저장됨: 가상의 공간에 저장됨.
+      변수1&변수2화살표가 같으면 변수1 == 변수2 비교해도 true나옴
+      */}
+      <button onClick = { ()=>{
+        //state가 array/object면 독립적 카피본을 만들어서 수정해야함
+        let copy = [...글제목];
+        copy[0] = '여자코트 추천';
+        console.log(copy == 글제목);
+        글제목변경(copy);//여기에 넣은 걸로 기존 state를 갈아치워준다.
+      }} >글수정</button>
+      {/* onClick={}안엔 함수이름을 넣어야함 
+      함수 만드는 문법 바로 넣어도 상관없음 ex) {()=> { }} 
+      state변경하는법
+      state변경함수(새로운state)*/}
+      <div className = "list">
+        <h4>{ 글제목 [0] } <span onClick={()=>{따봉변경(따봉+1) } }>👍</span> {따봉} </h4> 
+        <p>2월 17일 발행</p> 
+      </div>
+      <div className = "list">
+        <h4>{글제목[1]}</h4> 
+        <p>2월 17일 발행</p> 
+      </div>
+      <div className = "list">
+        <h4>{글제목[2]}</h4> 
+        <p>2월 17일 발행</p> 
+      </div>
     </div>
   );
 }
