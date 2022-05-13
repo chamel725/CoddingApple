@@ -18,3 +18,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+div{
+  paddig-left:20px;
+  text-align:left;
+  border-bottom: 1px solid grey;
+}
+
+.list {
+  padding-left: 20px;
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
+.modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  text-align: left;
+}

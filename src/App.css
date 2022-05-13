@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+
+div{
+  box-sizing: border-box;
+}
+     
+.list {
+  padding-left: 20px;
+  text-align: left;
+  border-bottom: 1px solid grey;
+}
+
+.Modal {
+  margin-top: 20px;
+  padding: 20px;
+  background: white;
+  text-align: left;
+}

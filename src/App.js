@@ -1,5 +1,9 @@
 //Lint끄는 기능:Warning메세지 없애는 부분
 /* eslint-disable */
+//component만드는 법
+//1.function만들고
+//2.return()안에 html담기
+//3.<함수명></함수명>쓰기
 
 
 import logo from './logo.svg';
@@ -86,8 +90,38 @@ function App() {
         <h4>{글제목[2]}</h4> 
         <p>2월 17일 발행</p> 
       </div>
+      <Modal/>
+      <Modal/>
     </div>
   );
+}
+
+//component만드는 법2
+//const로 만들면 나중에 에러메세지들 출력해준다.
+// const Modal = () =>{
+
+// }
+//div 병렬태그 안된다
+//return()안에 html병렬기입하려면
+//의미없는 div는 쓰기 싫고 div를 하나로 묶어야 한다면 <></>fregment
+//component쓰는 경우
+//1.반복적인 html축약할 때
+//2.큰 페이지도 component로
+//3.자주 변경되는 html UI들
+//component의 단점
+//state가져다 쓸 때 문제생김
+//A함수에 있던 변수는 B함수에서 맘대로 가져다 쓸 수 없음
+
+function Modal(){
+  return(
+    <>
+    <div className='modal'>
+    <h4>제목</h4> 
+    <p>날짜</p> 
+    <p>상세내용</p>
+  </div>
+  </>
+  )
 }
 
 export default App;
